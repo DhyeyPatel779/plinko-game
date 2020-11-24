@@ -36,22 +36,10 @@ for(var j = 15; j<=width-10; j = j+50){
 }
 
 
-if(frameCount%60===0){
-particles.push(new Particle(random(width/2-10),10,10))
-
-for(var j = 0;j< particles.length; j++){
-  particles[j].display();
-}
-
-for(var k = 0;k< particles.length; k++){
-  particles[k].display();
+Engine.run(engine);
 }
 
 
-
-}
-  Engine.run(engine);
-}
 
 function draw() {
   background(255,255,255);  
@@ -62,10 +50,23 @@ function draw() {
 ground.display();
 
 
+if(frameCount%60===0){
+  particles.push(new Particle(random(width/2-10),10,10))
+  
+  for(var j = 0;j< particles.length; j++){
+    particles[j].display();
+  }
+  
+  for(var k = 0;k< particles.length; k++){
+    particles[k].display();
+  }
+  
+  
 
 
 
 
 Engine.update(engine);
   drawSprites();
+}
 }
